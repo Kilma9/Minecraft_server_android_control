@@ -1,6 +1,71 @@
-# Raspberry Pi Control Android App
+# Minecraft Server Android Control
 
-Android application to control Raspberry Pi 5 running Proxmox hypervisor, MikroTik router, and Immich photo backup.
+An Android app for remotely controlling Minecraft servers via RCON protocol.
+
+## Features
+
+### 🖥️ Servers Tab
+- Connect to Minecraft servers via RCON
+- Save multiple server configurations
+- Manage connection credentials (IP, port, password)
+
+### 🎁 Items Tab
+- Give items to players with one tap
+- 30+ popular Minecraft items including:
+  - Resources (Diamond, Emerald, Netherite)
+  - Tools & Weapons (Swords, Pickaxes, Trident)
+  - Special Items (Elytra, Totem of Undying)
+  - Enchanted Books (Mending, Sharpness V, Fortune III)
+  - Blocks (TNT, Beacon, Shulker Box)
+
+### 🎮 Controls Tab
+- Teleport players to other players
+- Change gamemode (Survival, Creative, Adventure, Spectator)
+- Quick commands (Set time, Clear weather)
+
+### 📊 Info Tab
+- Server uptime monitoring
+- Active player count
+- TPS (Ticks Per Second) display
+- Memory usage statistics
+- Live player list
+
+### 💬 Chat Tab
+- Send messages to server
+- Real-time chat with players
+
+## Tech Stack
+
+- **Language**: Kotlin
+- **UI**: Material Design Components
+- **Architecture**: MVVM with ViewModels
+- **Navigation**: Android Navigation Component
+- **Protocol**: RCON for Minecraft server communication
+
+## Requirements
+
+- Android 8.0 (API 26) or higher
+- Minecraft server with RCON enabled
+
+## Setup
+
+1. Clone the repository
+2. Open in Android Studio
+3. Build and run on your device
+
+## RCON Configuration
+
+To connect to your Minecraft server, enable RCON in `server.properties`:
+
+```properties
+enable-rcon=true
+rcon.port=25575
+rcon.password=your_password
+```
+
+## License
+
+MIT License
 
 ## Features
 
