@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_servers">
+
+    <fragment
+        android:id="@+id/navigation_servers"
+        android:name="com.kilma.raspberrypi.ui.servers.ServersFragment"
+        android:label="Servers"
+        tools:layout="@layout/fragment_servers" />
+
+    <fragment
+        android:id="@+id/navigation_items"
+        android:name="com.kilma.raspberrypi.ui.items.ItemsFragment"
+        android:label="Items"
+        tools:layout="@layout/fragment_items" />
+
+    <fragment
+        android:id="@+id/navigation_controls"
+        android:name="com.kilma.raspberrypi.ui.controls.ControlsFragment"
+        android:label="Controls"
+        tools:layout="@layout/fragment_controls" />
+
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.kilma.raspberrypi.ui.info.InfoFragment"
+        android:label="Server Info"
+        tools:layout="@layout/fragment_info" />
+
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.kilma.raspberrypi.ui.chat.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat" />
+
+</navigation>

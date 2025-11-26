@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_servers"
+        android:icon="@drawable/ic_server"
+        android:title="Servers" />
+
+    <item
+        android:id="@+id/navigation_items"
+        android:icon="@drawable/ic_minecraft"
+        android:title="Items" />
+
+    <item
+        android:id="@+id/navigation_controls"
+        android:icon="@drawable/ic_photo"
+        android:title="Controls" />
+
+    <item
+        android:id="@+id/navigation_info"
+        android:icon="@drawable/ic_router"
+        android:title="Info" />
+
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/ic_home"
+        android:title="Chat" />
+
+</menu>
