@@ -39,8 +39,34 @@ An Android app for remotely controlling Minecraft servers via RCON protocol.
 - **Language**: Kotlin
 - **UI**: Material Design Components
 - **Architecture**: MVVM with ViewModels
-- **Navigation**: Android Navigation Component
+- **Navigation**: Android Navigation Component with Bottom Navigation
 - **Protocol**: RCON for Minecraft server communication
+
+## Project Structure
+
+```
+app/
+├── src/main/
+│   ├── java/com/kilma/raspberrypi/
+│   │   ├── MainActivity.kt
+│   │   ├── api/
+│   │   │   └── MinecraftRconClient.kt
+│   │   ├── data/
+│   │   │   ├── MinecraftItem.kt
+│   │   │   └── ItemsRepository.kt
+│   │   └── ui/
+│   │       ├── servers/
+│   │       ├── items/
+│   │       ├── controls/
+│   │       ├── info/
+│   │       ├── chat/
+│   │       └── minecraft/
+│   └── res/
+│       ├── layout/
+│       ├── navigation/
+│       ├── menu/
+│       └── drawable/       # Minecraft item icons
+```
 
 ## Requirements
 
@@ -50,8 +76,16 @@ An Android app for remotely controlling Minecraft servers via RCON protocol.
 ## Setup
 
 1. Clone the repository
+```bash
+git clone https://github.com/Kilma9/Minecraft_server_android_control.git
+```
+
 2. Open in Android Studio
+
 3. Build and run on your device
+```bash
+.\gradlew assembleDebug
+```
 
 ## RCON Configuration
 
@@ -61,6 +95,27 @@ To connect to your Minecraft server, enable RCON in `server.properties`:
 enable-rcon=true
 rcon.port=25575
 rcon.password=your_password
+```
+
+## Usage
+
+1. Open the app
+2. Go to **Servers** tab
+3. Enter server details (IP, port, password)
+4. Tap **Connect**
+5. Navigate to other tabs to control your server
+
+## Building
+
+```powershell
+# Build debug APK
+.\gradlew assembleDebug
+
+# Install on device
+.\gradlew installDebug
+
+# Build release
+.\gradlew assembleRelease
 ```
 
 ## License
