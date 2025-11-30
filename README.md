@@ -1,123 +1,154 @@
-# Minecraft Server Android Control
+# Minecraft Server Control App
 
-An Android app for remotely controlling Minecraft servers via RCON protocol.
+Android application for controlling Minecraft servers via RCON protocol.
 
-## Features
+## ✅ Features
 
-### 🖥️ Servers Tab
-- Connect to Minecraft servers via RCON
-- Save multiple server configurations
-- Manage connection credentials (IP, port, password)
+### 🎮 5-Tab Interface
 
-### 🎁 Items Tab
-- Give items to players with one tap
-- 30+ popular Minecraft items including:
-  - Resources (Diamond, Emerald, Netherite)
-  - Tools & Weapons (Swords, Pickaxes, Trident)
-  - Special Items (Elytra, Totem of Undying)
-  - Enchanted Books (Mending, Sharpness V, Fortune III)
-  - Blocks (TNT, Beacon, Shulker Box)
+1. **Servers Tab** - Connect to Minecraft servers via RCON
+   - Save multiple server configurations
+   - Quick connect with stored credentials
+   - Real-time connection status
+   - Built-in RCON setup guide
 
-### 🎮 Controls Tab
-- Teleport players to other players
-- Change gamemode (Survival, Creative, Adventure, Spectator)
-- Quick commands (Set time, Clear weather)
+2. **Items Tab** - Give items to players
+   - 30+ categorized Minecraft items
+   - Auto-fetch active players from server
+   - Favorite players for quick access
+   - Instant item distribution via `/give` command
 
-### 📊 Info Tab
-- Server uptime monitoring
-- Active player count
-- TPS (Ticks Per Second) display
-- Memory usage statistics
-- Live player list
+3. **Controls Tab** - Server management commands
+   - Change player gamemode (Survival, Creative, Adventure, Spectator)
+   - Teleport players between each other
+   - Time control (Day/Night)
+   - Weather control (Clear/Rain)
 
-### 💬 Chat Tab
-- Send messages to server
-- Real-time chat with players
+4. **Info Tab** - Server statistics
+   - Online player count and list
+   - World seed display
+   - Difficulty setting
+   - Real-time refresh
 
-## Tech Stack
+5. **Chat Tab** - Send messages to server
+   - Broadcast messages appear as "[App] Your message"
+   - Time-based message filtering (30min, 1h, 4h, 1 day)
+   - Clean chat interface
 
-- **Language**: Kotlin
-- **UI**: Material Design Components
-- **Architecture**: MVVM with ViewModels
-- **Navigation**: Android Navigation Component with Bottom Navigation
-- **Protocol**: RCON for Minecraft server communication
+## 🛠️ Technology Stack
 
-## Project Structure
+- **Language**: Kotlin 100%
+- **Architecture**: MVVM with ViewModels and LiveData
+- **UI**: Material Design 3 with Bottom Navigation
+- **Networking**: Custom RCON client implementing Source RCON Protocol
+- **Data**: SharedPreferences with Gson for persistence
+- **Async**: Kotlin Coroutines with Dispatchers
+- **Min SDK**: 24 (Android 7.0)
+- **Target SDK**: 34 (Android 14)
 
-```
-app/
-├── src/main/
-│   ├── java/com/kilma/raspberrypi/
-│   │   ├── MainActivity.kt
-│   │   ├── api/
-│   │   │   └── MinecraftRconClient.kt
-│   │   ├── data/
-│   │   │   ├── MinecraftItem.kt
-│   │   │   └── ItemsRepository.kt
-│   │   └── ui/
-│   │       ├── servers/
-│   │       ├── items/
-│   │       ├── controls/
-│   │       ├── info/
-│   │       ├── chat/
-│   │       └── minecraft/
-│   └── res/
-│       ├── layout/
-│       ├── navigation/
-│       ├── menu/
-│       └── drawable/       # Minecraft item icons
-```
+## 🚀 Getting Started
 
-## Requirements
+### Prerequisites
 
-- Android 8.0 (API 26) or higher
-- Minecraft server with RCON enabled
+1. Android device or emulator (Android 7.0+)
+2. Minecraft Java Edition server with RCON enabled
 
-## Setup
+### Enable RCON on Your Server
 
-1. Clone the repository
-```bash
-git clone https://github.com/Kilma9/Minecraft_server_android_control.git
-```
-
-2. Open in Android Studio
-
-3. Build and run on your device
-```bash
-.\gradlew assembleDebug
-```
-
-## RCON Configuration
-
-To connect to your Minecraft server, enable RCON in `server.properties`:
-
+Edit `server.properties`:
 ```properties
 enable-rcon=true
 rcon.port=25575
-rcon.password=your_password
+rcon.password=YourSecurePassword
 ```
 
-## Usage
+Restart your server.
 
-1. Open the app
-2. Go to **Servers** tab
-3. Enter server details (IP, port, password)
-4. Tap **Connect**
-5. Navigate to other tabs to control your server
+### Using the App
 
-## Building
+1. Install the APK on your Android device
+2. Open the app → **Servers** tab
+3. Enter server IP, RCON port (25575), and password
+4. Click **Connect**
+5. Navigate to other tabs to control your server!
 
-```powershell
-# Build debug APK
-.\gradlew assembleDebug
+See **[RCON_SETUP.md](RCON_SETUP.md)** for detailed setup instructions.
 
-# Install on device
-.\gradlew installDebug
+## 📦 Build
 
-# Build release
-.\gradlew assembleRelease
+```bash
+./gradlew assembleDebug
 ```
 
-## License
+APK output: `app/build/outputs/apk/debug/app-debug.apk`
 
-MIT License
+## 🔧 Features in Detail
+
+### RCON Client
+- Custom implementation of Source RCON Protocol
+- Secure authentication with password
+- Bi-directional command/response communication
+- Connection state management
+- Error handling and reconnection
+
+### Server Management
+All fragments check connection status and handle:
+- Player list fetching (`/list`)
+- Item distribution (`/give`)
+- Gamemode changes (`/gamemode`)
+- Player teleportation (`/tp`)
+- Time/Weather control
+- Server info queries
+
+### Data Persistence
+- Saved servers with credentials
+- Favorite players
+- Last connected server
+- User preferences
+
+## ⚠️ Security Notes
+
+**RCON protocol is NOT encrypted**
+- Use on trusted networks only
+- Consider VPN for remote access
+- Use strong passwords
+- Don't expose RCON port to public internet
+
+## 📁 Project Structure
+
+```
+app/src/main/
+├── java/com/kilma/minecraft/
+│   ├── rcon/
+│   │   └── RconManager.kt          # RCON client implementation
+│   ├── ui/
+│   │   ├── servers/                # Connection management
+│   │   ├── items/                  # Item distribution
+│   │   ├── controls/               # Server commands
+│   │   ├── info/                   # Server statistics
+│   │   └── chat/                   # Chat messaging
+│   ├── data/                       # Data models & repository
+│   └── MainActivity.kt
+└── res/
+    ├── layout/                     # XML layouts
+    ├── navigation/                 # Navigation graph
+    └── values/                     # Strings, themes, colors
+```
+
+## 🤝 Contributing
+
+This is a personal project for controlling my Minecraft server. Feel free to fork and customize for your needs!
+
+## 📄 License
+
+This project is for personal/educational use.
+
+## 🙏 Acknowledgments
+
+- Minecraft RCON Protocol: Based on Source RCON Protocol specification
+- Material Design 3 for UI components
+- Android Jetpack libraries
+
+---
+
+**Enjoy controlling your Minecraft server from your phone! 🎮📱**

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.kilma.raspberrypi'
+    namespace 'com.kilma.minecraft'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.kilma.raspberrypi"
+        applicationId "com.kilma.minecraft"
         minSdk 24
         targetSdk 34
         versionCode 1

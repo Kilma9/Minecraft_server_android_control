@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_servers"
-        android:name="com.kilma.raspberrypi.ui.servers.ServersFragment"
+        android:name="com.kilma.minecraft.ui.servers.ServersFragment"
         android:label="Servers"
         tools:layout="@layout/fragment_servers" />
 
     <fragment
         android:id="@+id/navigation_items"
-        android:name="com.kilma.raspberrypi.ui.items.ItemsFragment"
+        android:name="com.kilma.minecraft.ui.items.ItemsFragment"
         android:label="Items"
         tools:layout="@layout/fragment_items" />
 
     <fragment
         android:id="@+id/navigation_controls"
-        android:name="com.kilma.raspberrypi.ui.controls.ControlsFragment"
+        android:name="com.kilma.minecraft.ui.controls.ControlsFragment"
         android:label="Controls"
         tools:layout="@layout/fragment_controls" />
 
     <fragment
         android:id="@+id/navigation_info"
-        android:name="com.kilma.raspberrypi.ui.info.InfoFragment"
+        android:name="com.kilma.minecraft.ui.info.InfoFragment"
         android:label="Server Info"
         tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="com.kilma.raspberrypi.ui.chat.ChatFragment"
+        android:name="com.kilma.minecraft.ui.chat.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/fragment_chat" />
 

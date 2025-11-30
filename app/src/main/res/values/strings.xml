@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kilma Raspberry Pi</string>
+    <string name="app_name">Minecraft Server Control</string>
     <string name="title_hypervisor">Hypervisor</string>
     <string name="title_docker">Docker</string>
     <string name="title_minecraft">Minecraft</string>
